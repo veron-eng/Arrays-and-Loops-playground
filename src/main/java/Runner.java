@@ -20,7 +20,7 @@ public class Runner {
 //        2. Add "Tiree" to the start of the list
         scottishIslands.add(0,"Tiree");
 //        3. Add "Islay" after "Jura" and before "Mull"
-        scottishIslands.add(2,"Mull");
+        scottishIslands.add(2,"Islay");
 //        4. Print out the index position of "Skye"
         System.out.println(scottishIslands.indexOf("Skye"));
 //        5. Remove "Tresco" from the list by name
@@ -45,19 +45,24 @@ public class Runner {
 //        NUMBERS
 
         List<Integer> numbers = new ArrayList<>();
-        Collections.addAll(numbers, 1, 1, 4, 2, 7, 1, 6, 15, 13, 99, 7);
+        Collections.addAll(numbers, 1, 1, 2, 4, 2, 7, 1, 6, 15, 13, 99, 7);
 
         System.out.println("numbers: " + numbers);
 
 //        1. Print out a list of the even integers
+        // needed to create a new even number array list
+        // like list <Integer> evenNumbers = new ArrayList<>()
 
         for (Integer number : numbers) {
-            if (number % 2 ==0) {
+            if (number % 2 == 0) {
                 System.out.println(number);
             }
         }
 
 //        2. Print the difference between the largest and smallest value
+
+        // could have done
+        // int maxNumber = Collections.max(numbers)
 
         Integer min = 100;
         Integer max = 0;
@@ -85,6 +90,15 @@ public class Runner {
                 }
             }
 
+        // could have done
+
+        // boolean result = false
+        // int index = 0
+        /// for (int number : numbers) {
+        // if number ==1 && numbers.get(index + 1) ==1 {
+        // result = true }
+        // index +=1
+        //}
 
 
 
@@ -103,11 +117,15 @@ public class Runner {
 //           ...and numbers that come immediately after a 13 also do not count.
 //
 //          So [7, 13, 2] would have sum of 9.
-        Integer count2 =0;
 
-        for (Integer i =0; i < numbers.size(); i++) {
-            if (numbers.get(i) != (13) && numbers.get(i) != (14) && numbers.get(i) != (15)) {
-                count2 += numbers.get(i);
+        // it meant
+        int count2 =0;
+
+        for (int i =0; i < numbers.size(); i++) {
+            count2 += numbers.get(i);
+            if (numbers.get(i) == (13)) {
+                count2 -= numbers.get(i);
+                count2 -= numbers.get(i+1);
             }
         }
 
